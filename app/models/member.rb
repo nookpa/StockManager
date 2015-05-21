@@ -14,4 +14,5 @@
 #
 
 class Member < ActiveRecord::Base
+  has_many :products
 end
