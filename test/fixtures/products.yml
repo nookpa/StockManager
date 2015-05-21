@@ -1,0 +1,35 @@
+# == Schema Information
+#
+# Table name: products
+#
+#  id         :integer          not null, primary key
+#  name       :text
+#  user_id    :integer
+#  member_id  :integer
+#  amount     :integer
+#  color      :text
+#  cost_price :decimal(, )
+#  sale_price :decimal(, )
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyText
+  user_id: 1
+  member_id: 1
+  amount: 1
+  color: MyText
+  cost_price: 9.99
+  sale_price: 9.99
+
+two:
+  name: MyText
+  user_id: 1
+  member_id: 1
+  amount: 1
+  color: MyText
+  cost_price: 9.99
+  sale_price: 9.99
