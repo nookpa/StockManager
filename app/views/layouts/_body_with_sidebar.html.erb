@@ -1,0 +1,12 @@
+<body class="page">
+  <%= render 'layouts/header' %>
+  <div class="container-fluid">
+    <div class="row">
+      <%= render 'layouts/sidebar' %>
+      <div class="col-sm-9 col-md-10 main">
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+  <%= render 'layouts/footer' %>
+</body>
