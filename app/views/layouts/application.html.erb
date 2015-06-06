@@ -15,9 +15,6 @@
 
     <%= yield :css_html %>
     <%= csrf_meta_tags %>
-
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   </head>
 
     <% unless user_signed_in? %>
@@ -28,15 +25,9 @@
     <%= yield :modal %>
 
     <% unless user_signed_in? %>
-      <%= javascript_include_tag 'metronic-login' %>
+      <%= javascript_include_tag 'bootstrap-signin' %>
     <% else %>
       <%= javascript_include_tag 'application'%>
     <% end %>
     <%= yield :js_html %>
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 </html>

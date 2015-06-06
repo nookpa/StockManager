@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150522032904) do
+ActiveRecord::Schema.define(version: 20150605110535) do
 
   create_table "members", force: :cascade do |t|
     t.text     "first_name"
@@ -31,7 +31,6 @@ ActiveRecord::Schema.define(version: 20150522032904) do
     t.integer  "amount"
     t.text     "color"
     t.decimal  "cost_price"
-    t.decimal  "sale_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
