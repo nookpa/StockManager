@@ -9,7 +9,6 @@
 #  amount     :integer
 #  color      :text
 #  cost_price :decimal(, )
-#  sale_price :decimal(, )
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
