@@ -1,0 +1,53 @@
+<% if notice %>
+  <div class="alert alert-success" role="alert">
+    <p id="notice"><%= notice %></p>
+  </div>
+<% end %>
+
+<p>
+  <strong>Code name:</strong>
+  <%= @item.code_name %>
+</p>
+
+<p>
+  <strong>Sale date:</strong>
+  <%= @item.sale_date %>
+</p>
+
+<p>
+  <strong>Sale price:</strong>
+  <%= @item.sale_price %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @item.type %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @item.status %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @item.user_id %>
+</p>
+
+<p>
+  <strong>Member:</strong>
+  <%= @item.member_id %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @item.product_id %>
+</p>
+
+<p>
+  <strong>Remark:</strong>
+  <%= @item.remark %>
+</p>
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>

@@ -1,22 +1,24 @@
 # == Schema Information
 #
-# Table name: products
+# Table name: items
 #
 #  id         :integer          not null, primary key
-#  name       :text
+#  code_name  :text
+#  sale_date  :datetime
+#  sale_price :decimal(, )
+#  type       :text
+#  status     :text
 #  user_id    :integer
 #  member_id  :integer
-#  amount     :integer
-#  color      :text
-#  cost_price :decimal(, )
+#  product_id :integer
+#  remark     :text
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  remark     :text
 #
 
 require 'test_helper'
 
-class ProductTest < ActiveSupport::TestCase
+class ItemTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

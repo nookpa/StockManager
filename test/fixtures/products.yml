@@ -11,6 +11,7 @@
 #  cost_price :decimal(, )
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  remark     :text
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
