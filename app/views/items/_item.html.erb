@@ -25,23 +25,20 @@
 
 <p>
   <strong>User:</strong>
-  <%= @item.user_id %>
+  <%= @item.user.name rescue "" %>
 </p>
 
 <p>
   <strong>Member:</strong>
-  <%= @item.member_id %>
+  <%= @item.member.name rescue "" %>
 </p>
 
 <p>
   <strong>Product:</strong>
-  <%= @item.product_id %>
+  <%= @item.product.name rescue "" %>
 </p>
 
 <p>
   <strong>Remark:</strong>
   <%= @item.remark %>
 </p>
-
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>

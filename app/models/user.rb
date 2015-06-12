@@ -27,6 +27,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable, :authentication_keys => [:username]
   has_many :products
+  has_many :items
+  has_many :members
 
   validates_confirmation_of :password
   validates :username, presence: true, :uniqueness => { :case_sensitive => false }

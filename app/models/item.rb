@@ -17,7 +17,12 @@
 #
 
 class Item < ActiveRecord::Base
-  belongs_to :user
-  belongs_to :member
-  belongs_to :product
+  belongs_to :user, class_name: "User"
+  belongs_to :member, class_name: "Member"
+  belongs_to :product, class_name: "Product"
+
+  self.inheritance_column = nil
+
+  TYPES = ["online", "walk_in"]
+  STATUS = ["in_stock", "reserved", "sold_out", "repaired"]
 end

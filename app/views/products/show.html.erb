@@ -1,43 +1,32 @@
-<% if notice %>
-  <div class="alert alert-success" role="alert">
-    <p id="notice"><%= notice %></p>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <div class="panel-title">
+      Product Details
+      <div class="actions">
+        <%= link_to 'Edit', edit_product_path(@product), class: 'btn btn-xs btn-warning' %>
+      </div>
+    </div>
   </div>
+  <div class="panel-body">
+    <%= render "products/product", product: @product %>
+  </div>
+</div>
+<br>
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <div class="panel-title">
+      Listing Items
+      <div class="actions">
+        <a href='#' type="button" class="btn btn-success btn-xs" data-toggle="modal" data-target="#newItemModal">
+          New Item
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <%= render "items/items", items: @items %>
+  </div>
+</div>
+<% content_for :modal do %>
+  <%= render "items/modal_form", product: @product %>
 <% end %>
-
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @product.user_id %>
-</p>
-
-<p>
-  <strong>Member:</strong>
-  <%= @product.member_id %>
-</p>
-
-<p>
-  <strong>Amount:</strong>
-  <%= @product.amount %>
-</p>
-
-<p>
-  <strong>Color:</strong>
-  <%= @product.color %>
-</p>
-
-<p>
-  <strong>Cost price:</strong>
-  <%= @product.cost_price %>
-</p>
-
-<p>
-  <strong>Sale price:</strong>
-  <%= @product.sale_price %>
-</p>
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>

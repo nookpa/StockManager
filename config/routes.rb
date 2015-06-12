@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   resources :users
   
   resources :items
+  match '/items/new_items', to: 'items#new_items', via: :get, as: :new_items
+  match '/items/create_items', to: 'items#create_items', via: :post, as: :create_items
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

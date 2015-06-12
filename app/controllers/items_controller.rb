@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+  authorize_resource
   before_action :set_item, only: [:show, :edit, :update, :destroy]
 
   # GET /items
@@ -58,6 +59,35 @@ class ItemsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def new_items
+    @product = Product.find(params[:product_id])
+  end
+
+  def create_items
+    @product = Product.find(params[:product_id])
+    begin
+      saved = false
+      ActiveRecord::Base.transaction do
+        params[:amount].to_i.times do
+          Item.create!(product_id: @product.id, status: "in_stock", sale_date: DateTime.now)
+        end
+        saved = true
+      end
+    rescue ActiveRecord::RecordInvalid => e
+      # puts "#{e}".bg_red
+    end
+
+    respond_to do |format|
+      if saved
+        format.html { redirect_to @product, notice: 'Product was successfully created.' }
+        format.json { render :show, status: :created, location: @product }
+      else
+        format.html { render :new_items }
+        format.json { render json: @product.errors, status: :unprocessable_entity }
+      end
     end
   end
 

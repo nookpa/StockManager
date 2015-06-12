@@ -1,6 +1,10 @@
-<h1>Editing Product</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @product %> |
-<%= link_to 'Back', products_path %>
+<div class="panel panel-warning">
+  <div class="panel-heading">
+    <div class="panel-title">
+      Editing Product
+    </div>
+  </div>
+  <div class="panel-body">
+    <%= render 'products/form', product: @product %>
+  </div>
+</div>

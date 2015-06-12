@@ -1,0 +1,6 @@
+<%= form_tag(create_items_path, method: :post) do %>
+  <%= hidden_field_tag(:product_id, @product.id) %>
+  <%= label_tag(:amount, "Amount") %>
+  <%= number_field_tag(:amount, "") %>
+  <%= submit_tag("Submit") %>
+<% end %>

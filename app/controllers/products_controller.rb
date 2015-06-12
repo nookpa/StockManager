@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  authorize_resource
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   # GET /products
@@ -10,6 +11,7 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
+    @items = @product.items
   end
 
   # GET /products/new
@@ -25,9 +27,22 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(product_params)
+    begin
+      saved = false
+      ActiveRecord::Base.transaction do
+        if @product.save!
+          params[:amount].to_i.times do
+            Item.create!(product_id: @product.id, status: "in_stock", sale_date: DateTime.now)
+          end
+        end
+        saved = true
+      end
+    rescue ActiveRecord::RecordInvalid => e
+      # puts "#{e}".bg_red
+    end
 
     respond_to do |format|
-      if @product.save
+      if saved
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
       else
@@ -69,6 +84,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name, :user_id, :member_id, :amount, :color, :cost_price, :remark)
+      params.require(:product).permit(:name, :type, :color, :cost_price, :remark)
     end
 end

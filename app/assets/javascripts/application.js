@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap-theme
+//= require bootstrap-page
+//= require 'moment-with-locales.min'
 //= require turbolinks
 //= require_tree .
